@@ -31,7 +31,7 @@ workflows:
           script : |
           APP_UPLOAD_RESPONSE=$(curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X POST https://api-cloud.browserstack.com/app-automate/upload -F "file=@app/build/app/outputs/flutter-apk/app-release.apk")
           APP_ID=$(echo $APP_UPLOAD_RESPONSE | jq -r ".app_url")
-          if [$APP_ID != null]; then
+          if [ $APP_ID != null ]; then
             echo "Apk uploaded to BrowserStack with app id : ",$APP_ID;
             echo "export BROWSERSTACK_APP_ID=$APP_ID" >> $BASH_ENV;
             source $BASH_ENV;
