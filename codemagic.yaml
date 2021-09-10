@@ -43,7 +43,7 @@ workflows:
               echo "App upload failed, reason : ",$UPLOAD_ERROR_MESSAGE
               exit 1;
             fi
-      - script ./gradlew test
+      - script: ./gradlew test
     artifacts:
       - build/**/outputs/**/*.apk
 #       - build/**/outputs/apk/**/*.apk     
