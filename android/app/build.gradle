@@ -53,11 +53,6 @@ android {
 flutter {
     source '../..'
 }
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
-}
 
 
 dependencies {
