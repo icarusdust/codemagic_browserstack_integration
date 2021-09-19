@@ -30,7 +30,7 @@ workflows:
       - flutter build apk --release --build-name=2.0.$BUILD_NUMBER --build-number=$(($BUILD_NUMBER+ 1))
       - name: App upload and Set app id in environment variable.
         script: |
-           curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X DELETE "https://api-cloud.browserstack.com/app-live/app/delete/bs://d53307ec3b96e8b107b56762194a952340d11344"
+           curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X DELETE "https://api-cloud.browserstack.com/app-live/app/delete/d53307ec3b96e8b107b56762194a952340d11344"
 
  
     artifacts:
