@@ -34,12 +34,13 @@ workflows:
          mvn clean install
       - name: App upload and Set app id in environment variable.
         script: |
-         curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" \
-         -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
-         -F "file=@build/app/outputs/flutter-apk/app-release.apk"
+          curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@build/app/outputs/flutter-apk/app-release.apk"
       - name: Testing
         script: |
-         mvn test -P android-local-test
+          curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X POST "https://api-cloud.browserstack.com/app-automate/espresso/test-suite" -F "file=@build/app/outputs/flutter-apk/app-release.apk"
+      - name: Executing test
+        script: |
+          curl -X POST "https://api-cloud.browserstack.com/app-automate/espresso/build" -d  "{\"devices\": [\"Google Pixel 3-9.0\"], \"app\": \"bs://<hashed appid>\", \"deviceLogs\" : true, \"testSuite\": \"bs://<hashed testID>\"}" -H "Content-Type: application/json" -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q"
     artifacts:
       - build/**/outputs/**/*.apk
 #       - build/**/outputs/apk/**/*.apk     
