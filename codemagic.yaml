@@ -29,17 +29,13 @@ workflows:
           echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
       - flutter packages pub get
       - flutter build apk --release --build-name=2.0.$BUILD_NUMBER --build-number=$(($BUILD_NUMBER+ 1))
-      - name : Maven
-        script: |
-         mvn clean install
+#       - name : Maven
+#         script: |
+#          mvn clean install
       - name: App upload and Set app id in environment variable.
         script: |
           curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@build/app/outputs/flutter-apk/app-release.apk"
-      - name: Testing
-        script: |
           curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X POST "https://api-cloud.browserstack.com/app-automate/espresso/test-suite" -F "file=@build/app/outputs/flutter-apk/app-release.apk"
-      - name: Executing test
-        script: |
           curl -X POST "https://api-cloud.browserstack.com/app-automate/espresso/build" -d  "{\"devices\": [\"Google Pixel 3-9.0\"], \"app\": \"bs://ebe02fe38983226245e5176b27f9fc395c944e0f\", \"deviceLogs\" : true, \"testSuite\": \"bs://e5a1e0a9a5a2785c159e80e48680de9e89917b57\"}" -H "Content-Type: application/json" -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q"
     artifacts:
       - build/**/outputs/**/*.apk
