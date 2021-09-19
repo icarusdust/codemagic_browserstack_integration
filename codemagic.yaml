@@ -39,7 +39,7 @@ workflows:
          -F "file=@build/app/outputs/flutter-apk/app-release.apk"
       - name: Testing
         script: |
-         mvn test -P android-first-test
+         mvn test -P android-local-test
     artifacts:
       - build/**/outputs/**/*.apk
 #       - build/**/outputs/apk/**/*.apk     
