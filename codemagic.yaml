@@ -33,6 +33,9 @@ workflows:
          curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" \
          -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
          -F "file=@build/app/outputs/flutter-apk/app-release.apk"
+      - name: Testing
+        script: |
+         mvn test -P android-first-test
     artifacts:
       - build/**/outputs/**/*.apk
 #       - build/**/outputs/apk/**/*.apk     
