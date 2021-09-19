@@ -11,6 +11,7 @@ workflows:
         FCI_KEY_ALIAS: Encrypted(Z0FBQUFBQmc1LWVLUFF2LVhBQXFzWVhuOWtnNHBIMkE4M1pFYWdSd2U2cTZiM2ZDbzJNME00T1gyd0xnMFRBMk1nUUZrQ1UwTllpM05IY2dSRGZwUXl0TFliN1ZnRjNxRlE9PQ==)
         FCI_KEY_PASSWORD: Encrypted(Z0FBQUFBQmc1LWVnS3ljWGppTlNPVG8teFZERUFhejRJNThmQTlpOXFiLVV3N3JEN3F4WTJnVURXakxZdlJVMjhkYTlzVnhDX08yVkU5THNzcmhUTzdIY2dtdUFNS2l3cGc9PQ==)    
       flutter: stable
+      java: 8
       xcode: latest
       cocoapods: default
     scripts:         
