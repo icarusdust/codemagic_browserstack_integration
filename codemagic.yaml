@@ -31,7 +31,7 @@ workflows:
       - name: App upload and Set app id in environment variable.
         script: |
           curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" \
-          -X DELETE "https://api-cloud.browserstack.com/app-automate/app/delete/c8ddcb5649a8280ca800075bfd8f151115bba6b3"
+          -X DELETE "https://api-cloud.browserstack.com/app-automate/app/delete/5e1ec02195aa542c82c78898631e1a75fcc9b173"
     artifacts:
       - build/**/outputs/**/*.apk
 #       - build/**/outputs/apk/**/*.apk     
