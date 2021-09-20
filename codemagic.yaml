@@ -29,6 +29,7 @@ workflows:
           echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
       - flutter packages pub get
       - flutter build apk --release --build-name=2.0.$BUILD_NUMBER --build-number=$(($BUILD_NUMBER+ 1))
+      - flutter build apk --debug
 #       - name : Maven
 #         script: |
 #          mvn clean install
@@ -40,8 +41,8 @@ workflows:
           echo $TEST_URL
           curl -X POST "https://api-cloud.browserstack.com/app-automate/espresso/build" -d '{"devices": ["Google Pixel 3-9.0"], "app": "'"$APP_URL"'", "deviceLogs" : true, "testSuite": "'"$TEST_URL"'"}' -H "Content-Type: application/json" -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q"    
     artifacts:
-#       - build/**/outputs/**/*.apk
-      - build/**/outputs/apk/**/*.apk     
+      - build/**/outputs/**/*.apk
+#       - build/**/outputs/apk/**/*.apk     
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
