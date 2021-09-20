@@ -36,7 +36,6 @@ workflows:
         script: |
           curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@build/app/outputs/flutter-apk/app-release.apk"
           curl -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q" -X POST "https://api-cloud.browserstack.com/app-automate/espresso/test-suite" -F "file=@build/app/outputs/flutter-apk/app-release.apk"
-          curl -X POST "https://api-cloud.browserstack.com/app-automate/espresso/build" -d  "{\"devices\": [\"Google Pixel 3-9.0\"], \"app\": \"bs://7b4cd2fdea66d55641d432c4911c5c7470f441d5\", \"deviceLogs\" : true, \"testSuite\": \"bs://bbee973345766e5cffb76329dd70aba05dc3ff9e\"}" -H "Content-Type: application/json" -u "nihalagazade_JxPH1i:4y5LkQnzzGkv2s7ERZ4q"   
     artifacts:
       - build/**/outputs/**/*.apk
 #       - build/**/outputs/apk/**/*.apk     
